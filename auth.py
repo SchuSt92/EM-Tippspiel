@@ -1,6 +1,7 @@
 from flask import Blueprint
 
 # Blueprint für alle Seiten für die eine Authentifizierung notwendig ist.
+# https://flask.palletsprojects.com/en/3.0.x/blueprints/
 auth = Blueprint('auth', __name__)
 
 
