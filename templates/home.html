@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="p-4 mb-4" style="background-color: #343a40; color: white; border-radius: 0.25rem;">
+        <div class="row">
+             <div class="col-md-8">
+                <h3>Willkommen zur Fußball-EM 2024 in Deutschland!</h3>
+                <p>Sei dabei, wenn Fußballgeschichte geschrieben wird und Europa seine neuen Champions krönt! Mit Stadien, die vor Leidenschaft brodeln, und Fans, die ihre Teams lautstark unterstützen, wird die EM 2024 ein unvergessliches Spektakel. Tippe auf die Spiele, erlebe die Dramatik der Turniere und sieh, wie du gegen andere Fußballfans abschneidest. Hier ist Nervenkitzel garantiert! Packende Elfmeterduelle, überraschende Underdog-Siege und atemberaubende Tore – das größte Fußballfest des Jahres erwartet dich! Mach mit und werde Teil dieser einmaligen Erfahrung!</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='images/em.png') }}" class="img-fluid rounded" alt="EM">
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="text-center mb-4">Top 10 Tipper</h2>
+    <div class="table-responsive d-flex justify-content-center">
+        <table class="table table-striped table-dark" style="width: 70%;">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Punkte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in rangliste %}
+                <tr class="{% if loop.index % 2 == 0 %}bg-light{% endif %}">
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ entry.user.name }}</td>
+                    <td>{{ entry.punkte }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+

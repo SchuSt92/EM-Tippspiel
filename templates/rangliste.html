@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="p-4 mb-4" style="background-color: #343a40; color: white; border-radius: 0.25rem;">
+                <h3>Willkommen zum EM Tippspiel</h3>
+                <p>Willkommen zur Tipper-Rangliste unseres EM-Tippspiels! Hier sehen Sie die aktuelle Platzierung aller Teilnehmer und können Ihre Fortschritte im Wettbewerb verfolgen.</p>
+                <br>
+                <h4>Aktuelle Platzierungen</h4>
+                <p>Wer liegt an der Spitze? Wer hat die besten Tipps abgegeben? Unsere Rangliste wird ständig aktualisiert, damit Sie immer auf dem neuesten Stand sind. Verfolgen Sie Ihre eigene Position und die Ihrer Mitspieler in Echtzeit.</p>
+                <br>
+                <h4>Punkte und Erfolge</h4>
+                <p>Sehen Sie, wie viele Punkte Sie bisher gesammelt haben und vergleichen Sie Ihre Ergebnisse mit anderen Teilnehmern. Jeder richtige Tipp bringt Sie einen Schritt näher an die Spitze der Rangliste und an die attraktiven Gewinne.</p>
+                <br>
+                <p>Bleiben Sie dran und verfolgen Sie die Tipper-Rangliste unseres EM-Tippspiels. Jede Runde bringt neue Chancen und Herausforderungen – wer wird am Ende ganz oben stehen?</p>
+    </div>
+
+
+    <h2 class="text-center mb-4">Top 10 Tipper</h2>
+    <div class="table-responsive d-flex justify-content-center">
+        <table class="table table-striped table-dark" style="width: 70%;">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Punkte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in rangliste %}
+                <tr class="{% if loop.index % 2 == 0 %}bg-light{% endif %}">
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ entry.user.name }}</td>
+                    <td>{{ entry.punkte }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

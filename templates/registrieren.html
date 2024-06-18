@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card" style="background-color: #f8f9fa; color: black;">
+            <div class="card-header text-center" style="background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
+                <h3>Registrieren</h3>
+            </div>
+            <div class="card-body">
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}" class="alert-link">login page</a>.
+                    </div>
+                {% endif %}
+                {% endwith %}
+
+
+                <form method="post" action="/registrieren">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="key" class="form-label">Anmelde Key</label>
+                        <input type="text" class="form-control" id="key" name="key" placeholder="key">
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Registrieren</button>
+                </form>
+            </div>
+            <div class="card-footer text-center" style="background-color: #f8f9fa; border-top: 1px solid #dee2e6;">
+                <a href="{{ url_for('auth.login') }}" class="text-muted">Bereits ein Konto? Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}

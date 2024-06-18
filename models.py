@@ -1,6 +1,7 @@
 from db import db
+from flask_login import UserMixin
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(100), unique=True)
@@ -19,11 +20,11 @@ class Mannschaft(db.Model):
 class Spiel(db.Model):
     __tablename__ = "spiel"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)  # Neue eindeutige ID als Primärschlüssel
-    gast_mannschaft_id = db.Column(db.Integer, db.ForeignKey('mannschaft.id'))
     heim_mannschaft_id = db.Column(db.Integer, db.ForeignKey('mannschaft.id'))
+    gast_mannschaft_id = db.Column(db.Integer, db.ForeignKey('mannschaft.id'))
     typ = db.Column(db.String(50))  # z.B. "Vorrunde", "Halbfinale", etc.
-    tore_gast = db.Column(db.Integer, nullable=False, default=0)
     tore_heim = db.Column(db.Integer, nullable=False, default=0)
+    tore_gast = db.Column(db.Integer, nullable=False, default=0)
     austragungsort = db.Column(db.String(100), nullable=False)
     datum = db.Column(db.DateTime, nullable=False)
     gruppe = db.Column(db.String(1), nullable=True)
@@ -37,8 +38,8 @@ class Tipp(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)  # Neue eindeutige ID als Primärschlüssel
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     spiel_id = db.Column(db.Integer, db.ForeignKey('spiel.id'))
-    tipp_tore_gast = db.Column(db.Integer, nullable=True, default=0)
     tipp_tore_heim = db.Column(db.Integer, nullable=True, default=0)
+    tipp_tore_gast = db.Column(db.Integer, nullable=True, default=0)
     punkte = db.Column(db.Integer, nullable=False, default=0)
     active = db.Column(db.Boolean, default=False, nullable=False)
     user = db.relationship("User")
