@@ -20,7 +20,7 @@ def index():
 @main.route("/rangliste", methods=["GET"])
 def rangliste():
     next_game = get_next_game()
-    rangliste = Rangliste.query.order_by(Rangliste.punkte.desc()).all()
+    rangliste = Rangliste.query.order_by(Rangliste.punkte.desc()).limit(100).all()
 
     return render_template("rangliste.html",
                            heimMannschaft=next_game['heim_mannschaft'],

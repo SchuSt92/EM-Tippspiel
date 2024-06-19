@@ -5,6 +5,9 @@ from flask_login import LoginManager
 from modelviews import *
 from db import db
 
+import threading
+from datetime import datetime, timedelta
+from time import sleep
 
 admin = Admin(index_view=MyAdminIndexView())
 babel = Babel()
@@ -42,5 +45,35 @@ def create_app():
     admin.add_view(SpielModelView(Spiel, db.session))
     admin.add_view(TippModelView(Tipp, db.session))
     admin.add_view(RanglisteModelView(Rangliste, db.session))
+
+
+    #### Hier wird ein Spiel 30 Minuten vor Beginn auf locked gesetzt, damit keine Tipps mehr abgegeben oder geändert werden können.
+    ## Achtung auf die Zeitzone des Servers ;D
+    # Starte den Hintergrund-Thread
+    def lock_spiele():
+        while True:
+            with app.app_context():
+                now = datetime.now()
+                thirty_minutes_later = now + timedelta(minutes=30)
+                spiele_zum_sperren = Spiel.query.filter(
+                    Spiel.datum <= thirty_minutes_later,
+                    Spiel.locked == False
+                ).all()
+
+                for spiel in spiele_zum_sperren:
+                    spiel.locked = True
+
+                db.session.commit()
+                # zum Test, kann noch entfernt werden
+                print(f"{len(spiele_zum_sperren)} Spiele gesperrt.")
+                print(datetime.now())
+            # Warte 10 Minuten, bevor du erneut überprüfst
+            sleep(600)
+
+    #==== Start des Threads ====
+    thread = threading.Thread(target=lock_spiele)
+    thread.daemon = True
+    thread.start()
+
 
     return app

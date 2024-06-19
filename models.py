@@ -30,8 +30,9 @@ class Spiel(db.Model):
     gruppe = db.Column(db.String(1), nullable=True)
     absolviert = db.Column(db.Boolean, default=False, nullable=False)
     locked = db.Column(db.Boolean, default=False, nullable=False)
-    gast_mannschaft = db.relationship("Mannschaft", foreign_keys=[gast_mannschaft_id])
     heim_mannschaft = db.relationship("Mannschaft", foreign_keys=[heim_mannschaft_id])
+    gast_mannschaft = db.relationship("Mannschaft", foreign_keys=[gast_mannschaft_id])
+
 
 class Tipp(db.Model):
     __tablename__ = "tipp"
@@ -42,8 +43,9 @@ class Tipp(db.Model):
     tipp_tore_gast = db.Column(db.Integer, nullable=True, default=0)
     punkte = db.Column(db.Integer, nullable=False, default=0)
     active = db.Column(db.Boolean, default=False, nullable=False)
-    user = db.relationship("User")
     spiel = db.relationship("Spiel")
+    user = db.relationship("User")
+
 
 class Rangliste(db.Model):
     __tablename__ = "rangliste"
