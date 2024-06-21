@@ -127,9 +127,9 @@
                                                     <img src="{{ url_for('static', filename='images/flaggen/' + game.heim_mannschaft.logo) }}" alt="Flagge {{ game.heim_mannschaft.name }}" class="team-flag-tipp">
                                                 </div>
                                                 <div class="col-4 d-flex justify-content-center align-items-center">
-                                                    <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                    <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                                     <span class="score-separator">:</span>
-                                                    <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                    <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                                 </div>
                                                 <div class="col-4 d-flex align-items-center">
                                                     <img src="{{ url_for('static', filename='images/flaggen/' + game.gast_mannschaft.logo) }}" alt="Flagge {{ game.gast_mannschaft.name }}" class="team-flag-tipp">
@@ -161,9 +161,9 @@
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.heim_mannschaft.logo) }}" alt="Flagge {{ game.heim_mannschaft.name }}" class="team-flag-tipp">
                                             </div>
                                             <div class="col-4 d-flex justify-content-center align-items-center">
-                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                                 <span class="score-separator">:</span>
-                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                             </div>
                                             <div class="col-4 d-flex align-items-center">
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.gast_mannschaft.logo) }}" alt="Flagge {{ game.gast_mannschaft.name }}" class="team-flag-tipp">
@@ -188,9 +188,9 @@
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.heim_mannschaft.logo) }}" alt="Flagge {{ game.heim_mannschaft.name }}" class="team-flag-tipp">
                                             </div>
                                             <div class="col-4 d-flex justify-content-center align-items-center">
-                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                                 <span class="score-separator">:</span>
-                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                             </div>
                                             <div class="col-4 d-flex align-items-center">
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.gast_mannschaft.logo) }}" alt="Flagge {{ game.gast_mannschaft.name }}" class="team-flag-tipp">
@@ -215,9 +215,9 @@
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.heim_mannschaft.logo) }}" alt="Flagge {{ game.heim_mannschaft.name }}" class="team-flag-tipp">
                                             </div>
                                             <div class="col-4 d-flex justify-content-center align-items-center">
-                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                                 <span class="score-separator">:</span>
-                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                             </div>
                                             <div class="col-4 d-flex align-items-center">
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.gast_mannschaft.logo) }}" alt="Flagge {{ game.gast_mannschaft.name }}" class="team-flag-tipp">
@@ -242,9 +242,9 @@
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.heim_mannschaft.logo) }}" alt="Flagge {{ game.heim_mannschaft.name }}" class="team-flag-tipp">
                                             </div>
                                             <div class="col-4 d-flex justify-content-center align-items-center">
-                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team1" name="game{{ game.id }}_team1_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_heim }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                                 <span class="score-separator">:</span>
-                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="Tore" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
+                                                <input type="number" id="game{{ game.id }}_team2" name="game{{ game.id }}_team2_goals" placeholder="-" class="form-control score-input {% if game.locked %}disabled-input{% endif %}" value="{% if tipp and tipp.active %}{{ tipp.tipp_tore_gast }}{% else %}{% endif %}" {% if game.locked %}disabled{% endif %} min="0" step="1">
                                             </div>
                                             <div class="col-4 d-flex align-items-center">
                                                 <img src="{{ url_for('static', filename='images/flaggen/' + game.gast_mannschaft.logo) }}" alt="Flagge {{ game.gast_mannschaft.name }}" class="team-flag-tipp">
