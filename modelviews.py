@@ -11,10 +11,9 @@ class MyAdminIndexView(AdminIndexView):
     @expose('/')
     @login_required
     def index(self):
-        # Überprüfen, ob der Benutzer authentifiziert und ein Admin ("admin") ist.
         if not current_user.is_authenticated or current_user.role != 'admin':
-            return redirect(url_for('auth.login'))  # Weiterleitung zur Login-Seite, wenn die Überprüfung fehlschlägt.
-        return super(MyAdminIndexView, self).index()  # Aufruf der übergeordneten Index-Methode.
+            return redirect(url_for('auth.login'))
+        return super(MyAdminIndexView, self).index()
 
 
 """

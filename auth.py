@@ -52,23 +52,17 @@ def registrieren_post():
 
         # create a new user with the form data. Hash the password so the plaintext version isn't saved.
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
-
         new_user = User(email=email, name=name, password=hashed_password, role="user")
-
-        # add the new user to the database
         try:
             db.session.add(new_user)
             db.session.commit()
-            # Fetch all games from the database
             spiele = Spiel.query.all()
-
-            # Create a Tipp for each game for the new user
             for spiel in spiele:
                 new_tipp = Tipp(
                     user_id=new_user.id,
                     spiel_id=spiel.id,
-                    tipp_tore_gast=None,  # Set these to None initially
-                    tipp_tore_heim=None,  # Set these to None initially
+                    tipp_tore_gast=None,
+                    tipp_tore_heim=None,
                     punkte=0
                 )
                 db.session.add(new_tipp)
@@ -78,9 +72,7 @@ def registrieren_post():
                 punkte=0
             )
             db.session.add(new_rangliste)
-
             db.session.commit()
-
             flash('Account created successfully!')
             return redirect(url_for('auth.login'))
 
@@ -109,13 +101,11 @@ def login_post():
     remember = True if request.form.get('remember') else False
     user = User.query.filter_by(email=email).first()
 
-    # Passwortüberprüfung
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
         return redirect(
-            url_for('auth.login'))  # falls Benutzer nicht existiert oder Passwort falsch ist, Seite neu laden
+            url_for('auth.login'))
 
-    # Falls die Überprüfung erfolgreich ist, Benutzer zur Profilseite weiterleiten
     login_user(user, remember=remember)
     print(f'Logged in user role: {user.role}')
     return redirect(url_for('auth.profil'))
